@@ -7,9 +7,8 @@ export const Header = ({ scrolled, menuOpen, setMenuOpen }) => {
       <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2 sm:space-x-3 flex-1 min-w-0">
-            {/* Лого гавна*/}
             <img 
-              src="/tooth.png" 
+              src={process.env.PUBLIC_URL + '/tooth.png'} 
               alt="Логотип" 
               className="w-12 h-12 sm:w-12 sm:h-12 object-contain flex-shrink-0"
             />
