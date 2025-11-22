@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/dental-portal/static/css/main.1fbe192b.css",
+    "main.js": "/dental-portal/static/js/main.d5fba6d6.js",
+    "index.html": "/dental-portal/index.html",
+    "main.1fbe192b.css.map": "/dental-portal/static/css/main.1fbe192b.css.map",
+    "main.d5fba6d6.js.map": "/dental-portal/static/js/main.d5fba6d6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1fbe192b.css",
+    "static/js/main.d5fba6d6.js"
+  ]
+}
