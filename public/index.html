@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="utf-8" />
+    <!-- Змінено favicon на tooth -->
+    <link rel="icon" href="%PUBLIC_URL%/tooth.png" type="image/png" />
+    <!-- Або якщо використовуєте .ico -->
+    <!-- <link rel="icon" href="%PUBLIC_URL%/tooth.ico" /> -->
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#2563eb" />
+    <meta name="description" content="Стоматологічний кабінет санітарної частини ВВНЗ" />
+    
+    <!-- Додано іконку для Apple пристроїв -->
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/tooth.png" />
+    
+    <title>Стоматологічний кабінет санчастини ВВНЗ</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- jQuery and jQuery UI -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    
+    <style>
+      /* Додаткові анімації jQuery */
+      .fade-in {
+        animation: fadeIn 0.6s ease-in;
+      }
+      
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      /* Smooth scroll */
+      html {
+        scroll-behavior: smooth;
+      }
+      
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+      
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+      
+      ::-webkit-scrollbar-thumb {
+        background: #2563eb;
+        border-radius: 5px;
+      }
+      
+      ::-webkit-scrollbar-thumb:hover {
+        background: #1d4ed8;
+      }
+    </style>
+  </head>
+  <body>
+    <noscript>Вам потрібно увімкнути JavaScript для роботи цього сайту.</noscript>
+    <div id="root"></div>
+    
+    <!-- jQuery ефекти та анімації -->
+    <script>
+      $(document).ready(function() {
+        // Плавна прокрутка до якорів
+        $('a[href^="#"]').on('click', function(event) {
+          var target = $(this.getAttribute('href'));
+          if(target.length) {
+            event.preventDefault();
+            $('html, body').stop().animate({
+              scrollTop: target.offset().top - 100
+            }, 800, 'easeInOutQuad');
+          }
+        });
+        
+        // Паралакс ефект для хедера
+        $(window).scroll(function() {
+          var scroll = $(window).scrollTop();
+          $('.parallax-bg').css({
+            'transform': 'translateY(' + (scroll * 0.5) + 'px)'
+          });
+        });
+        
+        // Анімація появи елементів при скролі
+        function revealOnScroll() {
+          var reveals = $('.reveal');
+          for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = $(window).height();
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            var elementVisible = 150;
+            
+            if (elementTop < windowHeight - elementVisible) {
+              $(reveals[i]).addClass('active');
+            }
+          }
+        }
+        
+        $(window).on('scroll', revealOnScroll);
+        revealOnScroll();
+        
+        // Shake анімація для кнопок
+        $('.shake-on-hover').hover(
+          function() {
+            $(this).effect('shake', { times: 2, distance: 5 }, 300);
+          }
+        );
+        
+        // Tooltip для елементів
+        $('[data-tooltip]').tooltip({
+          show: { effect: 'fadeIn', duration: 200 },
+          hide: { effect: 'fadeOut', duration: 200 }
+        });
+        
+        // Counter animation
+        $('.counter').each(function() {
+          $(this).prop('Counter', 0).animate({
+            Counter: $(this).text()
+          }, {
+            duration: 2000,
+            easing: 'swing',
+            step: function(now) {
+              $(this).text(Math.ceil(now));
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
