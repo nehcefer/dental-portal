@@ -1,5 +1,5 @@
 import React from 'react';
-// About Page Component
+
 function AboutPage() {
   return (
     <div className="container mx-auto px-4 max-w-4xl">

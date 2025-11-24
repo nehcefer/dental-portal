@@ -14,7 +14,6 @@ function App() {
   const scrolled = useScrollEffect();
   const { currentSlide, setCurrentSlide, nextSlide, prevSlide } = useSlider(slides.length);
 
-  // Прокрутка вгору при зміні сторінки
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -23,7 +22,6 @@ function App() {
     });
   }, [currentPage]);
 
-  // Прокрутка вгору при відкритті/закритті новини
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -44,16 +42,13 @@ function App() {
     }
   }, [currentPage]);
 
-  // Функція для зміни сторінки
   const handlePageChange = (page) => {
     setCurrentPage(page);
-    // Скидаємо selectedNewsId при переході на сторінку новин через навігацію
     if (page === 'news') {
       setSelectedNewsId(null);
     }
   };
 
-  // Функція для відкриття новини
   const openNewsDetail = (newsId) => {
     setSelectedNewsId(newsId);
     setCurrentPage('news');

@@ -61,7 +61,7 @@ function NewsPage({ selectedNewsId, setSelectedNewsId }) {
               <p className="text-gray-600 mb-4">{news.description}</p>
               <button 
                 onClick={() => {
-                  console.log('Клік на новину:', news.id); // для відлагодження
+                  console.log('Клік на новину:', news.id); 
                   setSelectedNewsId(news.id);
                 }}
                 className="text-blue-600 hover:text-blue-800 font-semibold"

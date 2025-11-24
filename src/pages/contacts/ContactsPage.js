@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 
-// Contacts Page Component
 function ContactsPage() {
   const [formData, setFormData] = useState({
     name: '',
@@ -12,18 +11,15 @@ function ContactsPage() {
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
 
-  // Валідація форми
   const validateForm = () => {
     const newErrors = {};
     
-    // Перевірка імені
     if (!formData.name.trim()) {
       newErrors.name = "Будь ласка, введіть ваше ім'я";
     } else if (formData.name.trim().length < 2) {
       newErrors.name = "Ім'я має містити мінімум 2 символи";
     }
     
-    // Перевірка телефону
     if (!formData.phone.trim()) {
       newErrors.phone = "Будь ласка, введіть номер телефону";
     } else if (!/^[\d\s+()-]+$/.test(formData.phone)) {
@@ -36,7 +32,6 @@ function ContactsPage() {
     return Object.keys(newErrors).length === 0;
   };
 
-  // Обробка зміни полів
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -44,7 +39,7 @@ function ContactsPage() {
       [name]: value
     });
     
-    // Очистити помилку при введенні
+
     if (errors[name]) {
       setErrors({
         ...errors,
@@ -53,7 +48,6 @@ function ContactsPage() {
     }
   };
 
-  // Обробка відправки форми
   const handleSubmit = (e) => {
     e.preventDefault();
     
@@ -61,7 +55,7 @@ function ContactsPage() {
       console.log('Форма відправлена:', formData);
       setSubmitted(true);
       
-      // Скинути форму через 3 секунди
+
       setTimeout(() => {
         setFormData({ name: '', phone: '', message: '' });
         setSubmitted(false);

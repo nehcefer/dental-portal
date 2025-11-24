@@ -1,5 +1,5 @@
 import React from 'react';
-import { newsData } from '../../data'; // Два рівні вгору: home → pages → src
+import { newsData } from '../../data'; 
 
 function HomePage({ visibleNews, onNewsClick }) {
   return (
