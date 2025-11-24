@@ -1,10 +1,9 @@
 import React from 'react';
 import { newsData } from '../../data';
 
-// ВАЖЛИВО: Компонент ПОВИНЕН приймати пропси
+
 function NewsPage({ selectedNewsId, setSelectedNewsId }) {
   
-  // Якщо обрана конкретна новина
   if (selectedNewsId !== null) {
     const selectedNews = newsData.find(news => news.id === selectedNewsId);
     
